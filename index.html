@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>AI Prompt Converter</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <h1>AI Prompt Converter</h1>
+        <div class="converter-form">
+          <div>
+            <div class="label">Novel AI Prompt</div>
+            <div class="input-wrapper">
+              <textarea 
+                id="input-prompt" 
+                placeholder="Enter your Novel AI prompt here..."
+                spellcheck="false"
+                rows="1"
+              ></textarea>
+            </div>
+          </div>
+          <button id="convert-btn">
+            Convert Prompt
+          </button>
+          <div>
+            <div class="label">Web UI Format</div>
+            <div id="output-prompt" class="result"></div>
+          </div>
+        </div>
+        <div class="examples">
+          <h3>Examples</h3>
+          <ul>
+            <li>{beautiful sunset} → (beautiful sunset:1.049)</li>
+            <li>{{beautiful sunset}} → (beautiful sunset:1.102)</li>
+            <li>[ugly] → (ugly:0.951)</li>
+            <li>[[very ugly]] → (very ugly:0.907)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,209 @@
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+  
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: rgba(0, 0, 0, 0.1);
+  --accent-color: #646cff;
+  --accent-hover: #535bf2;
+}
+
+body {
+  margin: 0;
+  min-height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1a1033 0%, #2d1b4e 50%, #1a1033 100%);
+  background-attachment: fixed;
+  color: rgba(255, 255, 255, 0.87);
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(100, 108, 255, 0.08) 0%, transparent 50%);
+  animation: rotate 30s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.container {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 
+    0 8px 32px var(--glass-shadow),
+    0 1px 2px var(--glass-border);
+  z-index: 1;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(135deg, #646cff, #9089fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.converter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 58px;
+  max-height: 300px;
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--glass-border);
+  resize: none;
+  overflow-y: auto;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.2);
+}
+
+button {
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(100, 108, 255, 0.3);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(100, 108, 255, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.result {
+  margin-top: 0;
+  padding: 1.2rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  word-break: break-all;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  min-height: 1.5rem;
+  line-height: 1.6;
+}
+
+.label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.examples {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.examples h3 {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.examples ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.examples li {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  padding: 0.8rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+  transition: all 0.3s ease;
+}
+
+.examples li:hover {
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  transform: translateX(4px);
+}
+
+/* General scrollbar styles */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+/* Scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: var(--glass-bg);
+  border-radius: 0 8px 8px 0; /* Rounded corners for the track */
+}
+
+/* Scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color); /* Color of the scrollbar thumb */
+  border-radius: 0 8px 8px 0; /* Rounded corners for the thumb */
+}
+
+/* Scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-hover);
+  cursor: pointer;
+}
